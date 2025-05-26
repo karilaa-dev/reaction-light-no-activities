@@ -34,14 +34,14 @@ class Settings(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         # pylint: disable=no-member
-        self.maintain_presence.start()
+        # self.maintain_presence.start()
 
-    @tasks.loop(seconds=30)
-    async def maintain_presence(self):
-        await self.bot.wait_until_ready()
-        # Loops through the activities specified in activities.csv
-        current_activity = self.bot.activities.get()
-        await self.bot.change_presence(activity=disnake.Game(name=current_activity))
+    # @tasks.loop(seconds=30)
+    # async def maintain_presence(self):
+    #     await self.bot.wait_until_ready()
+    #     # Loops through the activities specified in activities.csv
+    #     current_activity = self.bot.activities.get()
+    #     await self.bot.change_presence(activity=disnake.Game(name=current_activity))
 
     @commands.slash_command(name="settings")
     async def settings_group(self, inter):
