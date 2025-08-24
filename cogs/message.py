@@ -673,7 +673,7 @@ class Message(commands.Cog):
                     react = self.bot.db.remove_reaction(message_to_edit.id, sanitize_emoji(reaction))
                 except DatabaseError as error:
                     await self.bot.report(
-                        self.bot.response.get("db-error-add-reaction", guild_id=inter.guild.id).format(
+                        self.bot.response.get("db-error-remove-reaction", guild_id=inter.guild.id).format(
                             channel_mention=message_to_edit.channel.mention, exception=error
                         ),
                         inter.guild.id,
