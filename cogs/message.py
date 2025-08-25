@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
 import asyncio
 from sqlite3 import Error as DatabaseError
 import disnake
@@ -211,7 +210,9 @@ class Message(commands.Cog):
                 )
 
                 def reaction_check3(payload):
-                    return payload.user_id == inter.author.id and payload.guild_id == inter.guild.id and str(payload.emoji) == "🔧"
+                    return (
+                        payload.user_id == inter.author.id and payload.guild_id == inter.guild.id and str(payload.emoji) == "🔧"
+                    )
 
                 try:
                     while True:

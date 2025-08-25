@@ -62,8 +62,7 @@ class BaseResponse(ABC):
         return response
 
     @abstractmethod
-    def get(self, item: str, *, guild_id: Optional[int] = None) -> str:
-        ...
+    def get(self, item: str, *, guild_id: Optional[int] = None) -> str: ...
 
 
 class Response(BaseResponse):
