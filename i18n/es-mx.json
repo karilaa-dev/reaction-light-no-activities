@@ -27,7 +27,7 @@
     "other-author-error": "Solo puedo editar los mensajes creados por mí, por favor, edita el mensaje de alguna otra manera.",
     "empty-message-error": "No puedes usar un mensaje vacío como mensaje de roles de reacción.",
     "edit-permission-error": "No tengo permisos para editar el mensaje.",
-    "update-notification": "Hay una actualización disponible. Descarga Reaction Light v{new_version} en https://github.com/eibex/reaction-light o simplemente usa `/bot update` (solo funciona en instalaciones de Docker y git).",
+    "update-notification": "Hay una actualización disponible. Descarga Reaction Light v{new_version} en https://github.com/eibex/reaction-light o simplemente usa `/bot update` (solo funciona en instalaciones de git).",
     "version": "Actualmente estoy ejecutando Reaction Light v{version}. La última versión disponible es v{latest_version}.",
     "new-role-dm": "Ahora tienes el siguiente rol: {role_name}",
     "removed-role-dm": "Ya no tienes el siguiente rol: {role_name}",

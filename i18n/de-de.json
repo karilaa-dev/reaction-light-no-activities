@@ -27,7 +27,7 @@
     "other-author-error": "Ich kann nur Nachrichten bearbeiten, die von mir erstellt wurden. Bearbeite die Nachricht bitte auf andere Weise.",
     "empty-message-error": "Du kannst keine leere Nachricht als Reaktionsrollen-Nachricht verwenden.",
     "edit-permission-error": "Ich habe keine Berechtigung, die Nachricht zu bearbeiten.",
-    "update-notification": "Ein Update ist verfügbar. Lade Reaction Light **v{new_version}** herunter unter <https://github.com/eibex/reaction-light> oder verwende einfach `/bot update` (funktioniert nur bei Docker- und Git-Installationen).",
+    "update-notification": "Ein Update ist verfügbar. Lade Reaction Light **v{new_version}** herunter unter <https://github.com/eibex/reaction-light> oder verwende einfach `/bot update` (funktioniert nur bei Git-Installationen).",
     "version": "Ich verwende derzeit Reaction Light **v{version}**. Die neueste verfügbare Version ist **v{latest_version}**.",
     "new-role-dm": "Du hast jetzt die folgende Rolle: **{role_name}**",
     "removed-role-dm": "Du hast die folgende Rolle nicht mehr: **{role_name}**",

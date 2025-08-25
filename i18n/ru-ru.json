@@ -27,7 +27,7 @@
     "other-author-error": "Я могу редактировать только свои сообщения, пожалуйста, отредактируйте сообщение другим способом.",
     "empty-message-error": "Вы не можете использовать пустое сообщение, как сообщения роли-за-реацию.",
     "edit-permission-error": "У меня нет разрешения редактировать сообщения.",
-    "update-notification": "Доступно обновление. Скачайте Reaction Light **v{new_version}** на <https://github.com/eibex/reaction-light> или просто используйте `/bot update` (работает только на Docker и установки git).",
+    "update-notification": "Доступно обновление. Скачайте Reaction Light **v{new_version}** на <https://github.com/eibex/reaction-light> или просто используйте `/bot update` (работает только на git).",
     "version": "В данный момент, я запускаю Reaction Light **v{version}**. Последняя доступная версия - **v{latest_version}**.",
     "new-role-dm": "Теперь у вас есть следующая роль: **{role_name}**",
     "removed-role-dm": "У вас больше нет следующей роли: **{role_name}**",
