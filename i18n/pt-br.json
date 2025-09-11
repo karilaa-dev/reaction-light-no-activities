@@ -27,7 +27,7 @@
     "other-author-error": "Só posso editar mensagens que são criadas por mim, por favor, edite a mensagem de outra maneira.",
     "empty-message-error": "Você não pode usar uma mensagem vazia como mensagem de atribuição de cargo por reação.",
     "edit-permission-error": "Não tenho permissões para editar a mensagem.",
-    "update-notification": "Uma atualização está disponível. Baixe a Reaction Light **v{new_version}** em <https://github.com/eibex/reaction-light> ou simplesmente use `/bot update` (funciona apenas em instalações Docker e git).",
+    "update-notification": "Uma atualização está disponível. Baixe a Reaction Light **v{new_version}** em <https://github.com/eibex/reaction-light> ou simplesmente use `/bot update` (funciona apenas em instalações git).",
     "version": "Estou atualmente executando a Reaction Light **v{version}**. A última versão disponível é **v{latest_version}**.",
     "new-role-dm": "Agora você tem o seguinte cargo: **{role_name}**",
     "removed-role-dm": "Você não tem mais o seguinte cargo: **{role_name}**",

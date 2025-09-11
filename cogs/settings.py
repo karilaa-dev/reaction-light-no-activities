@@ -156,7 +156,9 @@ class Settings(commands.Cog):
             self.bot.config.update("server", "language", language)
             self.bot.response.global_language = language
 
-        await inter.edit_original_message(content=self.bot.response.get("language-success", guild_id=inter.guild.id if inter.guild else None))
+        await inter.edit_original_message(
+            content=self.bot.response.get("language-success", guild_id=inter.guild.id if inter.guild else None)
+        )
 
     @commands.is_owner()
     @settings_group.sub_command(name="colour", description=static_response.get("brief-settings-colour"))
@@ -198,7 +200,9 @@ class Settings(commands.Cog):
 
             else:
                 self.bot.activities.add(activity)
-                await inter.send(self.bot.response.get("activity-success", guild_id=guild_id_or_none).format(new_activity=activity))
+                await inter.send(
+                    self.bot.response.get("activity-success", guild_id=guild_id_or_none).format(new_activity=activity)
+                )
         elif action == "list":
             if self.bot.activities.activity_list:
                 formatted_list = []

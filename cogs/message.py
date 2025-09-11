@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
 import asyncio
 from sqlite3 import Error as DatabaseError
 import disnake
@@ -211,7 +210,9 @@ class Message(commands.Cog):
                 )
 
                 def reaction_check3(payload):
-                    return payload.user_id == inter.author.id and payload.guild_id == inter.guild.id and str(payload.emoji) == "🔧"
+                    return (
+                        payload.user_id == inter.author.id and payload.guild_id == inter.guild.id and str(payload.emoji) == "🔧"
+                    )
 
                 try:
                     while True:
@@ -651,15 +652,6 @@ class Message(commands.Cog):
 
         if action == "add":
             try:
-                # Check that the bot can actually use the emoji
-                await message_to_edit.add_reaction(reaction)
-            except disnake.HTTPException:
-                await inter.edit_original_message(
-                    content=self.bot.response.get("new-reactionrole-emoji-403", guild_id=inter.guild.id)
-                )
-                return
-
-            try:
                 react = self.bot.db.add_reaction(message_to_edit.id, role.id, sanitize_emoji(reaction))
             except DatabaseError as error:
                 await self.bot.report(
@@ -670,6 +662,26 @@ class Message(commands.Cog):
                 )
                 return
 
+            try:
+                # Try to add the reaction, this will fail if the bot cannot actually use the emoji
+                await message_to_edit.add_reaction(reaction)
+            except disnake.HTTPException:
+                await inter.edit_original_message(
+                    content=self.bot.response.get("new-reactionrole-emoji-403", guild_id=inter.guild.id)
+                )
+                try:
+                    # We remove the db entry since the edit failed
+                    react = self.bot.db.remove_reaction(message_to_edit.id, sanitize_emoji(reaction))
+                except DatabaseError as error:
+                    await self.bot.report(
+                        self.bot.response.get("db-error-remove-reaction", guild_id=inter.guild.id).format(
+                            channel_mention=message_to_edit.channel.mention, exception=error
+                        ),
+                        inter.guild.id,
+                    )
+                    return
+                return
+
             if not react:
                 await inter.edit_original_message(
                     content=self.bot.response.get("reaction-edit-already-exists", guild_id=inter.guild.id)
@@ -677,6 +689,7 @@ class Message(commands.Cog):
                 return
 
             await inter.edit_original_message(content=self.bot.response.get("reaction-edit-add-success", guild_id=inter.guild.id))
+
         elif action == "remove":
             try:
                 await message_to_edit.clear_reaction(reaction)

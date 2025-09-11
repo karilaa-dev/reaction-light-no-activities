@@ -48,7 +48,7 @@ class Roles(commands.Cog):
                 self.bot.response.get("db-error-reaction-add", guild_id=guild_id).format(exception=error), guild_id
             )
             return
-        async with (await lock_manager.get_lock(user_id)):
+        async with await lock_manager.get_lock(user_id):
             if not exists:
                 # Checks that the message that was reacted to is a reaction-role message managed by the bot
                 return

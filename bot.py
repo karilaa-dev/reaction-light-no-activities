@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
 import os
 from sqlite3 import Error as DatabaseError
 import disnake
@@ -175,6 +174,7 @@ class ReactionLight(commands.InteractionBot):
         if not member:
             member = await guild.fetch_member(user_id)
         return member
+
 
 docker.setup(os.path.realpath(__file__))
 
