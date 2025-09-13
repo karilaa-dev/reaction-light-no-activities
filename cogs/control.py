@@ -46,19 +46,19 @@ class Control(commands.Cog):
         cmd = os.popen(f"nohup {python} bot.py &")
         cmd.close()
 
-    @tasks.loop(hours=24)
-    async def updates(self):
-        await self.bot.wait_until_ready()
-        # Sends a reminder once a day if there are updates available
-        new_version = await github.check_for_updates(self.bot.version)
+    # @tasks.loop(hours=24)
+    # async def updates(self):
+    #     await self.bot.wait_until_ready()
+    #     # Sends a reminder once a day if there are updates available
+    #     new_version = await github.check_for_updates(self.bot.version)
 
-        if new_version:
-            changelog = await github.latest_changelog()
-            em = disnake.Embed(
-                title=f"Reaction Light v{new_version} - Changes", description=changelog, colour=self.bot.config.botcolour
-            )
-            em.set_footer(text=f"{self.bot.config.botname}", icon_url=self.bot.config.logo)
-            await self.bot.report(self.bot.response.get("update-notification").format(new_version=new_version), embed=em)
+    #     if new_version:
+    #         changelog = await github.latest_changelog()
+    #         em = disnake.Embed(
+    #             title=f"Reaction Light v{new_version} - Changes", description=changelog, colour=self.bot.config.botcolour
+    #         )
+    #         em.set_footer(text=f"{self.bot.config.botname}", icon_url=self.bot.config.logo)
+    #         await self.bot.report(self.bot.response.get("update-notification").format(new_version=new_version), embed=em)
 
     @commands.slash_command(name="bot")
     async def controlbot_group(self, inter):
