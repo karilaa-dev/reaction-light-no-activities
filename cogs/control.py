@@ -37,7 +37,7 @@ class Control(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         # pylint: disable=no-member
-        self.updates.start()
+        # self.updates.start()
 
     def restart(self):
         # Create a new python process of bot.py and stops the current one
